@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--设置Mybatis日志, 输出执行的sql语句, STDOUT_LOGGING将sql语句输出到控制台上-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--配置数据源：创建Connection对象。-->
+            <dataSource type="POOLED">
+                <!--driver:驱动的内容-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--连接数据库的url-->
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis-powernode?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone = GMT"/>
+                <!--用户名-->
+                <property name="username" value="root"/>
+                <!--密码-->
+                <property name="password" value="12345"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--指定其他mapper文件的位置：
+        指定其他mapper文件目的是找到其他文件的sql语句
+    -->
+    <mappers>
+        <!--
+           使用mapper的resource属性指定mapper文件的路径。
+           这个路径是从类路径(target/classes)开始的
+
+           使用注意：
+           1) resource=“mapper文件的路径，使用 / 分割路径”
+           2) 一个mapper的resource属性指定一个mapper文件
+        -->
+        <mapper resource="com/bjpowernode/dao/StudentDao.xml"/>
+    </mappers>
+</configuration>
