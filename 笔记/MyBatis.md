@@ -315,11 +315,11 @@ StudentDao dao  = new StudentDaoImpl();
 
 ## 3.2 理解参数
 
-理解参数是： 通过java程序把数据传入到mapper文件中的sql语句。 参数主要是指dao接口方法的形参
+理解参数是:  通过java程序把数据传入到mapper文件中的sql语句。 参数主要是指dao接口方法的形参
 
 ### 3.2.1 parameterType
 
-parameterType:表示参数的类型， 指定dao方法的形参数据类型。 这个形参的数据类型是给mybatis使用。 mybatis在给sql语句的参数赋值时使用。 PreparedStatement.setXXX( 位置， 值) 
+parameterType: 表示参数的类型,  指定dao方法的形参数据类型。 这个形参的数据类型是给mybatis为sql语句的参数赋值时使用 --> PreparedStatement.setXXX( 位置， 值) 
 
 
 
