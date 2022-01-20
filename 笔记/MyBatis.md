@@ -292,9 +292,9 @@ rollback：回顾事务
 
 
 
-### 3.1.3 mybatis代理实现方式
+### 3.1.3 mybatis代理使用方式
 
-使用SqlSession对象的方法 getMapper(dao.class)
+使用SqlSession对象的 getMapper(dao.class) 方法，获取mybatis通过动态代理生成的对象
 
 例如： 现在有 StudentDao接口。 
 
@@ -304,7 +304,7 @@ StudentDao dao  = session.getMapper(StudentDao.class);
 Student student = dao.selectById(1001);
 
 
-//上面代码中
+// 上面代码中
 StudentDao dao  = session.getMapper(StudentDao.class);
 等同于
 StudentDao dao  = new StudentDaoImpl();

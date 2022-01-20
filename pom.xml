@@ -9,7 +9,12 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>mybaits-daodynamicproxy-mock</module>
+        <module>ch01-first</module>
+        <module>ch02-dao</module>
+        <module>ch03-proxy-dao</module>
+        <module>ch04-parameter</module>
+        <module>ch05-result</module>
+        <module>ch06-dynamic-sql</module>
     </modules>
 
     <properties>

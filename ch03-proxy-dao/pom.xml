@@ -8,7 +8,6 @@
   <artifactId>ch03-proxy-dao</artifactId>
   <version>1.0</version>
 
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -17,7 +16,6 @@
 
   <!--依赖列表-->
   <dependencies>
-
 
     <!--mybatis依赖-->
     <dependency>
@@ -30,9 +28,8 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.9</version>
+      <version>8.0.27</version>
     </dependency>
-
 
     <!--单元测试-->
     <dependency>
@@ -40,6 +37,12 @@
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.22</version>
     </dependency>
   </dependencies>
 

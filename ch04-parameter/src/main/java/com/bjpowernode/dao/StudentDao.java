@@ -8,16 +8,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * 演示 mybaits 获取方法参数
  */
 public interface StudentDao {
 
-    //重载方法
+    // 重载方法
     Student selectById(Integer id);
 
-
-    //dao接口的方法形参是一个简单类型的
-    //简单类型： java基本数据类型和String
+    // dao 接口的方法形参是一个简单类型的
+    // 简单类型: java基本数据类型和String
     Student selectByEmail(String email);
 
     /*
@@ -30,7 +29,7 @@ public interface StudentDao {
                                     @Param("myage") Integer age);
 
     /*
-     * 一个java对象作为参数( 对象由属性， 每个属性有set，get方法)
+     * 一个java对象作为参数( 对象有属性，每个属性有set，get方法)
      */
     List<Student> selectByObject(Student student);
 

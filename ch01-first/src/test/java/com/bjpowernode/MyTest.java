@@ -67,7 +67,7 @@ public class MyTest {
         Student student = new Student();
         student.setId(1015);
         student.setName("张飞");
-        student.setEmail("zhangfie@qq.com");
+        student.setEmail("zhangfei@qq.com");
         student.setAge(26);
         int rows = session.insert(sqlId, student);
         System.out.println("使用mybatis添加一个学生，rows=" + rows);

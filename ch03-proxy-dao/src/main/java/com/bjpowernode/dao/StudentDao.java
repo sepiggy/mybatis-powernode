@@ -4,9 +4,6 @@ import com.bjpowernode.domain.Student;
 
 import java.util.List;
 
-/**
- *
- */
 public interface StudentDao {
 
     //重载方法
