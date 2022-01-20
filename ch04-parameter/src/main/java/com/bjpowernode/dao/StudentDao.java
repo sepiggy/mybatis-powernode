@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 演示 mybaits 获取方法参数
+ * 演示 mybatis 获取方法参数
  */
 public interface StudentDao {
 
@@ -28,11 +28,10 @@ public interface StudentDao {
     List<Student> selectByNameOrAge(@Param("myname") String name,
                                     @Param("myage") Integer age);
 
-    /*
-     * 一个java对象作为参数( 对象有属性，每个属性有set，get方法)
-     */
+    // 使用一个业务对象作为参数 (必须有set, get方法)
     List<Student> selectByObject(Student student);
 
+    // 使用一个自定义对象作为参数
     List<Student> selectByQueryParam(QueryParam param);
 
     /*
