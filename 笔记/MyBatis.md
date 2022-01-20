@@ -177,7 +177,7 @@ mybatis的文档： https://mybatis.org/mybatis-3/zh/index.html
 
 ## 2.3 MyBatis的一些重要对象
 
-1） Resources ： mybatis框架中的对象， 一个作用读取 主配置信息。
+1. Resources ： mybatis框架中的对象， 一个作用读取 主配置信息。
 
 ```java
 InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
@@ -185,7 +185,7 @@ InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
 
 
 
-2）SqlSessionFactoryBuilder：负责创建SqlSessionFactory对象
+2. SqlSessionFactoryBuilder：负责创建SqlSessionFactory对象
 
 ```java
 SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -193,9 +193,9 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
 
 
 
-3）SqlSessionFactory: 重要对象
+3. SqlSessionFactory: 重要对象
 
-SqlSessionFactory是重量级对象：创建此对象需要使用更多的资源和时间。  在项目中有一个就可以了。
+SqlSessionFactory是重量级对象：创建此对象需要使用更多的资源和时间。在项目中有一个就可以了。
 
 SqlSessionFactory接口：作用是SqlSession的工厂， 就是创建SqlSession对象。
 
@@ -207,19 +207,17 @@ public class DefaultSqlSessionFactory implements SqlSessionFactory { }
 
 
 
-SqlSessionFactory接口中的方法
+SqlSessionFactory接口中的常用方法
 
-openSession(): 获取一个默认的SqlSession对象， 默认是需要手工提交事务的。
+- openSession(): 获取一个默认的SqlSession对象， 默认是需要手工提交事务的。
 
-openSession(boolean): boolean参数表示是否自动提交事务。 
+- openSession(boolean): boolean参数表示是否自动提交事务。 
 
-​                   true： 创建一个自动提交事务的SqlSession
-
-​                  false:   等同于没有参数的openSession
-
+    - true： 创建一个自动提交事务的SqlSession
+    - false:   等同于没有参数的openSession
 
 
-4) SqlSession对象
+4. SqlSession对象
 
 SqlSession对象是通过SqlSessionFactory获取的。 SqlSession本身是接口
 

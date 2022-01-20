@@ -65,7 +65,7 @@ public class MyTest {
         SqlSession session = factory.openSession();
         String sqlId = "com.bjpowernode.dao.StudentDao" + "." + "insertStudent";
         Student student = new Student();
-        student.setId(1010);
+        student.setId(1015);
         student.setName("张飞");
         student.setEmail("zhangfie@qq.com");
         student.setAge(26);
@@ -78,31 +78,26 @@ public class MyTest {
         session.close();
     }
 
+    // 使用自动提交事务进行插入
     @Test
     public void testAutoCommitInsertStudent() throws IOException {
 
         String config = "mybatis.xml";
         InputStream inputStream = Resources.getResourceAsStream(config);
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession session = factory.openSession(true);
+        SqlSession session = factory.openSession(true); // 自动提交事务
 
-        //5.指定要执行的sql语句的 id
-        //  sql的id = namespace+"."+ select|update|insert|delete标签的id属性值
         String sqlId = "com.bjpowernode.dao.StudentDao" + "." + "insertStudent";
 
-        // 6.通过SqlSession的方法，执行sql语句
         Student student = new Student();
-        student.setId(1007);
-        student.setName("小乔");
-        student.setEmail("zhangfie@qq.com");
+        student.setId(1018);
+        student.setName("孙尚香");
+        student.setEmail("ssx@qq.com");
         student.setAge(26);
 
         int rows = session.insert(sqlId, student);
         System.out.println("使用mybatis添加一个学生，rows=" + rows);
 
-
-        // 7.关闭SqlSession对象
         session.close();
-
     }
 }

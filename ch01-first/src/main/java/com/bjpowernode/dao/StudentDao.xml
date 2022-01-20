@@ -20,7 +20,7 @@
     <!--添加insert
        eg. insert into student values(1003,"李峰","lifeng@qq.com",26)
        如果传入给mybatis是一个java对象，使用#{属性名} 获取此属性的值。
-       属性值放到 #{}占位符的位置, mybatis执行此属性 对应的getXXX().
+       属性值放到 #{}占位符的位置, mybatis执行此属性对应的getXXX().
        例如 #{id} ，执行getId();
     -->
     <insert id="insertStudent">
