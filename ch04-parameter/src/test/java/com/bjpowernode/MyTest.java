@@ -57,58 +57,46 @@ public class MyTest {
     }
 
     @Test
-    public void testSelectBObject2() {
+    public void testSelectByObject2() {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         StudentDao dao = sqlSession.getMapper(StudentDao.class);
-
         QueryParam param = new QueryParam();
-        param.setP1("东皇");
+        param.setP1("东皇"); // 虽然p1的类型是Object,Mybatis通过反射可以获取实际参数类型
         param.setP2(20);
         List<Student> students = dao.selectByQueryParam(param);
-
         students.forEach(stu -> System.out.println("stu=" + stu));
         sqlSession.close();
-
     }
-
 
     @Test
     public void testSelectByPosition() {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         StudentDao dao = sqlSession.getMapper(StudentDao.class);
-
         //按位置传递参数
         List<Student> students = dao.selectByPosition("李四", 20);
-
         students.forEach(stu -> System.out.println("stu=" + stu));
         sqlSession.close();
-
     }
 
     @Test
     public void testSelectByMap() {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         StudentDao dao = sqlSession.getMapper(StudentDao.class);
-
-        //使用map传递参数
+        // 使用map传递参数
         Map<String, Object> data = new HashMap<>();
         data.put("myname", "李思思");
         data.put("myage", 20);
         List<Student> students = dao.selectStudentByMap(data);
-
         students.forEach(stu -> System.out.println("stu=" + stu));
         sqlSession.close();
-
     }
 
     @Test
     public void testUpdateStudent() {
         SqlSession sqlSession = MyBatisUtil.getSqlSession();
         StudentDao dao = sqlSession.getMapper(StudentDao.class);
-
-
         Student student = new Student();
-        student.setId(1003);
+        student.setId(1001);
         student.setName("张峰");
         student.setEmail("ZHANGFENG@qq.com");
         student.setAge(20);
@@ -116,8 +104,6 @@ public class MyTest {
         sqlSession.commit();
         System.out.println("更新学生的rows=" + rows);
         sqlSession.close();
-
     }
-
 
 }

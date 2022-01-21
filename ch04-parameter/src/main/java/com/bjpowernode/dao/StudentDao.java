@@ -34,24 +34,20 @@ public interface StudentDao {
     // 使用一个自定义对象作为参数
     List<Student> selectByQueryParam(QueryParam param);
 
-    /*
-       使用位置，获取参数
-     */
-    List<Student> selectByPosition(String name,Integer age);
+    // 在Mapper文件中使用位置获取参数
+    List<Student> selectByPosition(String name, Integer age);
 
-    /*
-       使用Map作为参数
-     */
-    List<Student> selectStudentByMap(Map<String,Object> map);
+    // 使用Map作为参数
+    List<Student> selectStudentByMap(Map<String, Object> map);
 
-
-    //更新
+    // 不仅能对select语句传参,insert,update,delete语句都可以
     int updateStudent(Student student);
 
-    // ${}占位符的使用, 使用@Param 命名
+    // ${}占位符的使用必须使用@Param指定命名
     List<Student> queryStudent(@Param("studentName") String name);
 
     List<Student> queryStudentOrderById();
+
     List<Student> queryStudentOrderByName();
 
     List<Student> queryStudentOrderByColName(@Param("myname") String name,

@@ -58,6 +58,7 @@
          select id,name,email,age from student where name=#{name} or age=#{age}
      </select>-->
 
+    <!--使用一个业务对象作为参数 (必须有set, get方法)-->
     <select id="selectByObject" resultType="com.bjpowernode.domain.Student">
         select id, name, email, age
         from student
@@ -65,6 +66,7 @@
            or age = #{age,javaType=java.lang.Integer,jdbcType=INTEGER}
     </select>
 
+    <!--使用一个自定义对象作为参数-->
     <select id="selectByQueryParam" resultType="com.bjpowernode.domain.Student">
         select id, name, email, age
         from student
@@ -75,6 +77,7 @@
     <!--
        使用位置获取参数值， dao接口方法是多个简单类型的参数
        语法： #{arg0}, #{arg1}....
+       List<Student> selectByPosition(String name, Integer age);
     -->
     <select id="selectByPosition" resultType="com.bjpowernode.domain.Student">
         select id, name, email, age
@@ -85,7 +88,7 @@
 
     <!--
        使用Map传递参数，
-       在mapper文件中，获取map的值，是通过key获取的，语法：#{key}
+       在mapper文件中，获取map的值，是通过map的key获取的，语法：#{key}
     -->
     <select id="selectStudentByMap" resultType="com.bjpowernode.domain.Student">
         select id, name, email, age
@@ -97,8 +100,8 @@
     <!--更新-->
     <update id="updateStudent">
         update student
-        set name=#{name},
-            email=#{email}
+        set name = #{name},
+            email = #{email}
         where id = #{id}
     </update>
 
@@ -123,7 +126,6 @@
         from student
         order by name
     </select>
-
 
     <select id="queryStudentOrderByColName" resultType="com.bjpowernode.domain.Student">
         select *

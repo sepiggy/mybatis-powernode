@@ -419,7 +419,7 @@ dao接口中的方法定义
 
 ```java
 /*
- * 一个java对象作为参数( 对象由属性， 每个属性有set，get方法)
+ * 一个java对象作为参数( 对象有属性， 每个属性有set，get方法)
  */
 List<Student> selectByObject(Student student);
 
@@ -433,7 +433,7 @@ mapper文件
 ```xml
 <!--
    一个java对象作为方法的参数，使用对象的属性作为参数值使用
-   简单的语法： #{属性名} ， mybatis调用此属性的getXXX()方法获取属性值
+   简单的语法： #{属性名}，mybatis调用此属性的getXXX()方法获取属性值
 -->
 <select id="selectByObject" resultType="com.bjpowernode.domain.Student">
     select id,name,email,age from student where name=#{name} or age=#{age}
@@ -456,7 +456,7 @@ mapper文件
 
 ### 3.2.5 dao接口中多个简单类型的参数，使用位置
 
-参数位置： dao接口中方法的形参列表，从左往右，参数位置是 0 ， 1， 2......
+参数位置： dao接口中方法的形参列表，从左往右，参数位置是 0， 1， 2......
 
 语法格式：#{arg0} ,#{arg1}
 
@@ -549,8 +549,8 @@ mybatis处理#{} 使用jdbc对象是 PrepareStatment对象
     select id,name,email,age from student where id=#{studentId}
 </select>
 
-mybatis出创建PrepareStatement对象，执行sql语句
-String sql=" select id,name,email,age from student where id=?";
+mybatis创建出PrepareStatement对象，执行sql语句
+String sql="select id,name,email,age from student where id=?";
 PrepareStatement pst = conn.prepareStatement(sql);
 pst.setInt(1,1001);  //传递参数
 ResultSet rs  = pst.executeQuery(); //执行sql语句
@@ -562,11 +562,11 @@ ResultSet rs  = pst.executeQuery(); //执行sql语句
 
 #{}特点：
 
-1）使用的PrepareStatement对象，执行sql语句，效率高。
+1）使用PrepareStatement对象执行sql语句，效率高。
 
-2）使用的PrepareStatement对象，能避免sql语句， sql语句执行更安全。
+2）使用PrepareStatement对象，能避免sql注入， sql语句执行更安全。
 
-3） #{} 常常作为 列值使用的， 位于等号的右侧，  #{}位置的值和数据类型有关的。
+3） #{} 常常作为`列值`使用的， 位于等号的右侧， #{}位置的值和数据类型有关 (pst.setInt(1,1001);)。
 
 
 
